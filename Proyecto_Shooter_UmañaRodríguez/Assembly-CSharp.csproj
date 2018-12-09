@@ -62,7 +62,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AnimationControl.cs" />
+    <Compile Include="Assets\Scripts\Enemy1.cs" />
     <Compile Include="Assets\Scripts\PlayerShoot.cs" />
+    <None Include="Assets\Rune Assets\Simple\Urban Buildings Pack 1\runesimple.shader" />
     <Reference Include="Cinemachine">
       <HintPath>C:/Users/Emilio Umaña/Desktop/Escuela/Repositorios/Proyectos_IA_5A/Proyecto_Shooter_UmañaRodríguez/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
     </Reference>

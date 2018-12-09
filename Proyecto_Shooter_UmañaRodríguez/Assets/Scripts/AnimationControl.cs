@@ -7,8 +7,7 @@ using UnityEngine.Timeline;
 public class AnimationControl : MonoBehaviour {
 
     public static AnimationControl instance;
-
-    PlayableDirector playableDirector;
+    public static PlayableDirector playableDirector;
     public List<TimelineAsset> timelines;
 
 	// Use this for initialization
@@ -36,4 +35,5 @@ public class AnimationControl : MonoBehaviour {
     {
         playableDirector.Play(timelines[index]);
     }
+
 }
