@@ -62,26 +62,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AnimationControl.cs" />
+    <Compile Include="Assets\Scripts\Bullet.cs" />
     <Compile Include="Assets\Scripts\Enemy1.cs" />
+    <Compile Include="Assets\Scripts\Enemy2.cs" />
     <Compile Include="Assets\Scripts\PlayerShoot.cs" />
     <None Include="Assets\Rune Assets\Simple\Urban Buildings Pack 1\runesimple.shader" />
     <Reference Include="Cinemachine">
-      <HintPath>C:/Users/Emilio Umaña/Desktop/Escuela/Repositorios/Proyectos_IA_5A/Proyecto_Shooter_UmañaRodríguez/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
+      <HintPath>C:/Users/Emilio Umaña/Desktop/Escuela/Repositorios/Proyecto_Disparos/Proyecto_Shooter_UmañaRodríguez/Library/ScriptAssemblies/Cinemachine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>C:/Users/Emilio Umaña/Desktop/Escuela/Repositorios/Proyectos_IA_5A/Proyecto_Shooter_UmañaRodríguez/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>C:/Users/Emilio Umaña/Desktop/Escuela/Repositorios/Proyecto_Disparos/Proyecto_Shooter_UmañaRodríguez/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>C:/Users/Emilio Umaña/Desktop/Escuela/Repositorios/Proyectos_IA_5A/Proyecto_Shooter_UmañaRodríguez/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>C:/Users/Emilio Umaña/Desktop/Escuela/Repositorios/Proyecto_Disparos/Proyecto_Shooter_UmañaRodríguez/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>C:/Users/Emilio Umaña/Desktop/Escuela/Repositorios/Proyectos_IA_5A/Proyecto_Shooter_UmañaRodríguez/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>C:/Users/Emilio Umaña/Desktop/Escuela/Repositorios/Proyecto_Disparos/Proyecto_Shooter_UmañaRodríguez/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="com.unity.cinemachine.editor">
-      <HintPath>C:/Users/Emilio Umaña/Desktop/Escuela/Repositorios/Proyectos_IA_5A/Proyecto_Shooter_UmañaRodríguez/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
+      <HintPath>C:/Users/Emilio Umaña/Desktop/Escuela/Repositorios/Proyecto_Disparos/Proyecto_Shooter_UmañaRodríguez/Library/ScriptAssemblies/com.unity.cinemachine.editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>C:/Users/Emilio Umaña/Desktop/Escuela/Repositorios/Proyectos_IA_5A/Proyecto_Shooter_UmañaRodríguez/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>C:/Users/Emilio Umaña/Desktop/Escuela/Repositorios/Proyecto_Disparos/Proyecto_Shooter_UmañaRodríguez/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>C:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
