@@ -38,75 +38,80 @@ public class Boss : MonoBehaviour {
         bossHealthText.GetComponent<Text>().enabled = false;
         
     }
-	
-	// Update is called once per frame
-	void Update () {
-        //calcular la posicion del jugador 
-        Vector3 playerpos = player.transform.position;
-        
-        //Distancia ente el boss y el player, el boss y el primer waypoint y el boss y el segundo waypoint
-        float distance = Vector3.Distance(transform.position, player.transform.position);
-        float distanceToWaypoint1 = Vector3.Distance(transform.position, waypoint1.transform.position);
-        float distanceToWaypoint2 = Vector3.Distance(transform.position, waypoint2.transform.position);
 
-        //Si la animacion ya termino el boss va hacia el jugador 
-        if (AnimationControl.playableDirector.state != UnityEngine.Playables.PlayState.Playing && flag == true)
-        {
-            PlayerShoot.fight = true;
-            agent.SetDestination(playerpos);
-            bossHealthText.GetComponent<Text>().enabled = true;
-        }
+    // Update is called once per frame
+    void Update()
+    {
 
-        //Si el jugador está en rango, ataca al jugador
-        if (distance < playerInRange && over == true)
+        if (PlayerShoot.playerHealth > 0)
         {
-            Attack();
-        }
+            //calcular la posicion del jugador 
+            Vector3 playerpos = player.transform.position;
 
-        //Si la vida del boss es menor a 50, empieza la segunda fase
-        //El boss va al primer waypoint y luego al segundo y asi sucesivamente mientras dispara al jugador cada segundo
-        if (bossHealth <= 50 && flag2 == true)
-        {
-            agent.SetDestination(waypoint1.transform.position);
-            agent.speed = 10f;
-            if (distanceToWaypoint1 < waypointInRange)
+            //Distancia ente el boss y el player, el boss y el primer waypoint y el boss y el segundo waypoint
+            float distance = Vector3.Distance(transform.position, player.transform.position);
+            float distanceToWaypoint1 = Vector3.Distance(transform.position, waypoint1.transform.position);
+            float distanceToWaypoint2 = Vector3.Distance(transform.position, waypoint2.transform.position);
+
+            //Si la animacion ya termino el boss va hacia el jugador 
+            if (AnimationControl.playableDirector.state != UnityEngine.Playables.PlayState.Playing && flag == true)
             {
                 PlayerShoot.fight = true;
-                flag2 = false;
+                agent.SetDestination(playerpos);
+                bossHealthText.GetComponent<Text>().enabled = true;
             }
 
-            if (Time.time > nextFire)
+            //Si el jugador está en rango, ataca al jugador
+            if (distance < playerInRange && over == true)
             {
-                Instantiate(bullet, transform.position, Quaternion.identity);
-                nextFire = Time.time + fireRate;
+                Attack();
             }
 
-        }
-        if (bossHealth <= 50 && flag2 == false)
-        {
-            agent.SetDestination(waypoint2.transform.position);
-            agent.speed = 10f;
-            if (distanceToWaypoint2 < waypointInRange)
+            //Si la vida del boss es menor a 50, empieza la segunda fase
+            //El boss va al primer waypoint y luego al segundo y asi sucesivamente mientras dispara al jugador cada segundo
+            if (bossHealth <= 50 && flag2 == true)
             {
-                PlayerShoot.fight = true;
-                flag2 = true;
-            }
+                agent.SetDestination(waypoint1.transform.position);
+                agent.speed = 10f;
+                if (distanceToWaypoint1 < waypointInRange)
+                {
+                    PlayerShoot.fight = true;
+                    flag2 = false;
+                }
 
-            if (Time.time > nextFire)
+                if (Time.time > nextFire)
+                {
+                    Instantiate(bullet, transform.position, Quaternion.identity);
+                    nextFire = Time.time + fireRate;
+                }
+
+            }
+            if (bossHealth <= 50 && flag2 == false)
             {
-                Instantiate(bullet, transform.position, Quaternion.identity);
-                nextFire = Time.time + fireRate;
+                agent.SetDestination(waypoint2.transform.position);
+                agent.speed = 10f;
+                if (distanceToWaypoint2 < waypointInRange)
+                {
+                    PlayerShoot.fight = true;
+                    flag2 = true;
+                }
+
+                if (Time.time > nextFire)
+                {
+                    Instantiate(bullet, transform.position, Quaternion.identity);
+                    nextFire = Time.time + fireRate;
+                }
             }
-        }
-        //Si la vida del boss es = 0 el boss se destruye
-        if (bossHealth <= -1)
-        {
-            Destroy(this);
-        }
+            //Si la vida del boss es = 0 el boss se destruye
+            if (bossHealth <= -1)
+            {
+                Destroy(this);
+            }
 
 
-        bossHealthText.text = "Boss Health: " + bossHealth;
-     }
+            bossHealthText.text = "Boss Health: " + bossHealth;
+        }
+    }
 
     IEnumerator Damage()
     {

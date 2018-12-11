@@ -36,6 +36,7 @@ public class PlayerShoot : MonoBehaviour
 
     void Start()
     {
+        fight = false;
         playerHealth = 100;
         score = 0;
         theCamera = GameObject.Find("Main Camera").GetComponent<Camera>();
