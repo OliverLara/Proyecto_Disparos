@@ -10,10 +10,14 @@ public class Enemy2 : MonoBehaviour {
     float fireRate;
     float nextFire;
     public static bool follow = false;
+    bool over = true;
+    
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
+
+        follow = false;
         fireRate = 5f;
         nextFire = Time.time;
         StartCoroutine("Follow");
@@ -26,6 +30,11 @@ public class Enemy2 : MonoBehaviour {
         if (follow == true)
         {
             CheckTimeToFire();
+        }
+
+        if (follow == false && over == true)
+        {
+            Wait();
         }
     }
 
@@ -48,5 +57,16 @@ public class Enemy2 : MonoBehaviour {
     {
         yield return new WaitForSeconds(18);
         follow = true;
+    }
+
+    IEnumerator Flag()
+    {
+        yield return new WaitForSeconds(18);
+    }
+
+    void Wait()
+    {
+        over = false;
+        StartCoroutine("Flag");
     }
 }

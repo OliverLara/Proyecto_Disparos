@@ -12,12 +12,15 @@ public class Enemy1 : MonoBehaviour {
     float playerInRange = 0.5f;
     public static bool follow = false;
     bool over = true;
-
+    bool over2 = true;
     
+
+
 
     // Use this for initialization
     void Start () {
 
+        follow = false;
         agent = GetComponent<NavMeshAgent>();
         StartCoroutine("Follow");
     }
@@ -43,11 +46,15 @@ public class Enemy1 : MonoBehaviour {
                 Health();
             }
         }
+        if (follow == false && over == true)
+        {
+            Wait();
+        }
     }
 
     IEnumerator Follow()
     {
-        yield return new WaitForSeconds(15);
+        yield return new WaitForSeconds(14);
         follow = true;
     }
 
@@ -70,6 +77,15 @@ public class Enemy1 : MonoBehaviour {
             Debug.Log("Player is dead");
         }
     }
+    IEnumerator Flag()
+    {
+        yield return new WaitForSeconds(14);
+    }
 
+    void Wait()
+    {
+        over2 = false;
+        StartCoroutine("Flag");
+    }
 
 }

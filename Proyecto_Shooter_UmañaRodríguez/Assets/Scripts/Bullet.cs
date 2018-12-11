@@ -8,7 +8,7 @@ public class Bullet : MonoBehaviour {
     Rigidbody rb;
     GameObject target;
     Vector3 moveDirection;
-    float playerHit = 0.5f;
+    float playerHit = 0.7f;
 
 	// Use this for initialization
 	void Start () {
@@ -16,8 +16,7 @@ public class Bullet : MonoBehaviour {
         target = GameObject.FindGameObjectWithTag("Tail");
         moveDirection = (target.transform.position - transform.position).normalized * bulletSpeed;
         rb.velocity = new Vector3(moveDirection.x, moveDirection.y, moveDirection.z);
-
-        //Destroy(gameObject, 10f);
+        Destroy(gameObject, 5f);
     }
 	
 	// Update is called once per frame
